@@ -1,0 +1,7 @@
+powDat<-read.table("household_power_consumption.txt", header=T, sep=";")
+day1<-subset(powDat, Date=="1/2/2007")
+day2<-subset(powDat, Date=="2/2/2007")
+plotDat<-rbind(day1,day2)
+png('Plot1.png')
+hist(as.numeric(plotDat$Global_active_power)/500,xlab="Global Active Power (Killowatts)",col="red", breaks=16, main="Global Active Power")
+dev.off()
